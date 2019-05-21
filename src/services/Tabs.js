@@ -1,8 +1,8 @@
 export default class Tabs {
-  constructor(tabs) {
+  constructor(tabs, defaultTab) {
     this.tabs = tabs;
 
-    this.current = tabs[0];
+    this.current = defaultTab ? defaultTab : tabs[0];
   }
 
   swipe(direction) {
