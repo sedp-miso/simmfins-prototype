@@ -1,17 +1,17 @@
 <template>
-  <q-page>
-    <div>
-      404
-    </div>
-  </q-page>
+  <q-layout>
+    <q-page-container>
+      <q-page class="q-ma-md">404</q-page>
+    </q-page-container>
+  </q-layout>
 </template>
 
 <script>
 export default {
-
-}
+  data() {
+    return {};
+  }
+};
 </script>
 
-<style>
-
-</style>
+<style></style>

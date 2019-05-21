@@ -1,11 +1,10 @@
 const routes = [
   {
     path: "/",
-    component: () => import("../features/Collections/ClientsList.vue")
+    component: () => import("../features/Index.vue")
   },
   {
     path: "/collections/client_list",
-    //component: () => import("../layouts/Landing.vue")
     component: () => import("../features/Collections/ClientsList.vue")
   },
   {
