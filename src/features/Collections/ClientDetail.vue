@@ -13,7 +13,7 @@
               transition-show="slide-up"
               transition-hide="slide-down"
             >
-              <q-layout class="bg-white">
+              <q-layout class="bg-white" v-touch-swipe.mouse.left.right="handleSwipe">
                 <q-toolbar class="bg-primary text-white">
                   <q-toolbar-title>Manage Collection</q-toolbar-title>
 
@@ -49,9 +49,9 @@
                       </q-item-section>
                     </q-item>
                     <q-separator class="q-mt-sm"/>
-                    <q-tab-panels v-model="tab" animated>
+                    <q-tab-panels v-model="tabs.current" animated>
                       <q-tab-panel class="q-pa-none" name="loans">
-                        <div class="text-h6">Loans</div>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        <div class="text-h6">Loanss</div>Lorem ipsum dolor sit amet consectetur adipisicing elit.
                       </q-tab-panel>
                       <q-tab-panel class="q-pa-none" name="collections">
                         <div class="text-h6">Collections</div>Lorem ipsum dolor sit amet consectetur adipisicing elit.
@@ -66,21 +66,17 @@
                         <div class="text-h6">Emergency Loan</div>Lorem ipsum dolor sit amet consectetur adipisicing elit.
                       </q-tab-panel>
                     </q-tab-panels>
-                    <!-- <q-item-section avatar>
-                      
-                      <q-item-label>Maria Juana Dela Cruz</q-item-label>
-                      <q-item-label caption lines="1">client@sedp.ph</q-item-label>
-                    </q-item-section>
-                    <q-item-section>
-                      <q-item-label>Maria Juana Dela Cruz</q-item-label>
-                      <q-item-label caption lines="1">client@sedp.ph</q-item-label>
-                    </q-item-section>-->
                   </q-card-section>
                 </q-card>
                 <q-page-sticky expand position="bottom">
                   <div class="row full-width">
                     <div class="col">
-                      <q-tabs v-model="tab" dense switch-indicator class="bg-grey-2 text-primary">
+                      <q-tabs
+                        v-model="tabs.current"
+                        dense
+                        switch-indicator
+                        class="bg-grey-2 text-primary"
+                      >
                         <q-tab class="text-green" name="loans" icon="fas fa-cash-register"/>
                         <q-tab class="text-teal" name="collections" icon="fas fa-coins"/>
                         <q-tab class="text-orange" name="savings" icon="fas fa-piggy-bank"/>
@@ -100,13 +96,27 @@
 </template>
 
 <script>
+import Tabs from "../../services/Tabs";
+
 export default {
   data() {
     return {
+      tabs: new Tabs([
+        "loans",
+        "collections",
+        "savings",
+        "center_release",
+        "emergency_loan"
+      ]),
       dialog: true,
-      maximizedToggle: false,
-      tab: "loans"
+      maximizedToggle: false
     };
+  },
+
+  methods: {
+    handleSwipe({ evt, ...info }) {
+      this.tabs.swipe(info.direction);
+    }
   }
 };
 </script>
