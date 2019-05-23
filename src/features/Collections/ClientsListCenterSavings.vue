@@ -4,7 +4,7 @@
     <q-list class="q-pa-none">
       <q-item class="q-px-none">
         <q-item-section>
-          <q-item-label class="text-h6 text-weight-bold">Butaw</q-item-label>
+          <q-item-label class="text-subtitle1 text-weight-bold">Butaw</q-item-label>
           <q-item-label class="text-subtitle1">{{ 1000 | currency('')}}</q-item-label>
         </q-item-section>
 

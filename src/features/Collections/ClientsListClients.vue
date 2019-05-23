@@ -17,7 +17,7 @@
         </q-item-section>
 
         <q-item-section>
-          <q-item-label class="text-subtitle1 text-weight-bold">Maria Juan Dela Cruz</q-item-label>
+          <q-item-label class="text-subtitle1 text-weight-bold">Maria Juan Dela Cruz Santiago</q-item-label>
           <q-item-label class="text-subtitle1">{{ 1000 | currency('')}}</q-item-label>
           <q-item-label>
             <q-icon class="q-mr-xs" name="fas fa-first-aid" color="red" size="16px"></q-icon>
@@ -38,7 +38,11 @@
                 autofocus
               />
             </q-popup-edit>
-            <q-item-label class="text-h6">{{ payment1 }}</q-item-label>
+            <q-item-label
+              style="min-width: 80px;"
+              class="text-h6 text-right"
+              v-touch-swipe.mouse.left.right="handleSwipe"
+            >{{ payment1 | currency('') }}</q-item-label>
           </div>
 
           <q-item-label class="q-pt-sm text-h6">
@@ -57,91 +61,7 @@
         </q-item-section>
       </q-item>
 
-      <q-separator inset></q-separator>
-
-      <q-item class="q-px-xs">
-        <q-item-section avatar style="min-width: 42px">
-          <q-avatar size="48px">
-            <img src="https://cdn.quasar-framework.org/img/avatar6.jpg">
-          </q-avatar>
-        </q-item-section>
-
-        <q-item-section>
-          <q-item-label class="text-subtitle1 text-weight-bold">Maria Juan Dela Cruz</q-item-label>
-          <q-item-label class="text-subtitle1">{{ 1000 | currency('')}}</q-item-label>
-          <q-item-label>
-            <q-icon class="q-mr-xs" name="fas fa-first-aid" color="red" size="16px"></q-icon>
-            <q-icon class="q-mr-xs" name="fas fa-wallet" color="blue" size="16px"></q-icon>
-          </q-item-label>
-        </q-item-section>
-
-        <q-item-section side top>
-          <div>
-            <q-popup-edit v-model="payment1" buttons>
-              <q-input type="number" v-model="payment1" dense autofocus/>
-            </q-popup-edit>
-            <q-item-label class="text-h6">{{ payment1 }}</q-item-label>
-          </div>
-
-          <q-item-label class="text-h6">
-            <q-badge color="blue">
-              <select name="select">
-                <option value="P" selected>PRESENT</option>
-                <option value="U">UNDERTIME</option>
-                <option value="T">TARDY</option>
-                <option value="A">ABSENT</option>
-                <option value="L">LEAVE</option>
-                <option value="I">INACTIVE</option>
-                <option value="E">EXCUSED</option>
-              </select>
-            </q-badge>
-          </q-item-label>
-        </q-item-section>
-      </q-item>
-
-      <q-separator inset></q-separator>
-
-      <q-item class="q-px-xs">
-        <q-item-section avatar style="min-width: 42px">
-          <q-avatar size="48px">
-            <img src="https://cdn.quasar-framework.org/img/avatar6.jpg">
-          </q-avatar>
-        </q-item-section>
-
-        <q-item-section>
-          <q-item-label class="text-subtitle1 text-weight-bold">Maria Juan Dela Cruz</q-item-label>
-          <q-item-label class="text-subtitle1">{{ 1000 | currency('')}}</q-item-label>
-          <q-item-label>
-            <q-icon class="q-mr-xs" name="fas fa-first-aid" color="red" size="16px"></q-icon>
-            <q-icon class="q-mr-xs" name="fas fa-wallet" color="blue" size="16px"></q-icon>
-          </q-item-label>
-        </q-item-section>
-
-        <q-item-section side top>
-          <div>
-            <q-popup-edit v-model="payment1" buttons>
-              <q-input type="number" v-model="payment1" dense autofocus/>
-            </q-popup-edit>
-            <q-item-label class="text-h6">{{ payment1 }}</q-item-label>
-          </div>
-
-          <q-item-label class="text-h6">
-            <q-badge color="blue">
-              <select name="select">
-                <option value="P" selected>PRESENT</option>
-                <option value="U">UNDERTIME</option>
-                <option value="T">TARDY</option>
-                <option value="A">ABSENT</option>
-                <option value="L">LEAVE</option>
-                <option value="I">INACTIVE</option>
-                <option value="E">EXCUSED</option>
-              </select>
-            </q-badge>
-          </q-item-label>
-        </q-item-section>
-      </q-item>
-
-      <q-separator inset></q-separator>
+      <q-separator></q-separator>
     </q-list>
     <span class="q-ma-lg"></span>
   </div>
@@ -149,6 +69,7 @@
 
 <script>
 export default {
+  name: "clients",
   data() {
     return {
       selectedClient: null,
@@ -161,6 +82,18 @@ export default {
   computed: {
     searchClientLabel() {
       return this.selectedClient ? null : "Search Client";
+    }
+  },
+
+  methods: {
+    handleSwipe({ evt, ...info }) {
+      if (info.direction === "right") {
+        this.payment1 = 0.0;
+      }
+
+      if (info.direction === "left") {
+        this.payment1 = 1000;
+      }
     }
   }
 };
