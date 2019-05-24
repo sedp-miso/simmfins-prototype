@@ -81,6 +81,41 @@
 
         <q-item class="q-pa-none">
           <q-item-section>
+            <q-item-label class="text-subtitle1 text-bold">MBA Penalty</q-item-label>
+            <q-item-label class="text-subtitle1">25.00</q-item-label>
+          </q-item-section>
+
+          <q-item-section side>
+            <div>
+              <q-popup-edit v-model="mba" buttons>
+                <q-input
+                  type="number"
+                  v-model="mba"
+                  input-class="text-bold"
+                  @focus="$event.target.select()"
+                  label="Amount Paid"
+                  dense
+                  autofocus
+                />
+              </q-popup-edit>
+              <!-- <q-item-label class="text-h6 text-primary">{{mba | currency('')}}</q-item-label> -->
+              <q-item-label
+                class="text-h6 text-right text-primary badge-80"
+                v-ripple
+                v-touch-swipe.mouse.left.right.stop="({ evt, ...info }) => handleSwipe({ evt, ...info }, 'mba', 25)"
+              >
+                <transition name="slide-fade" mode="out-in">
+                  <!-- Wrapping only one DOM element, defined by QBtn -->
+                  <span :key="mba">{{ mba | currency('') }}</span>
+                </transition>
+              </q-item-label>
+            </div>
+          </q-item-section>
+        </q-item>
+        <q-separator></q-separator>
+
+        <q-item class="q-pa-none">
+          <q-item-section>
             <q-item-label class="text-subtitle1 text-bold">ID</q-item-label>
             <q-item-label class="text-subtitle1">10.00</q-item-label>
           </q-item-section>
@@ -142,6 +177,47 @@
                 <transition name="slide-fade" mode="out-in">
                   <!-- Wrapping only one DOM element, defined by QBtn -->
                   <span :key="passbook">{{ passbook | currency('') }}</span>
+                </transition>
+              </q-item-label>
+            </div>
+          </q-item-section>
+        </q-item>
+        <q-separator></q-separator>
+
+        <q-item class="q-pa-none">
+          <q-item-section>
+            <q-item-label class="text-subtitle1 text-bold">SSS
+              <!-- check if this is feasible in development -->
+              (4/1)
+            </q-item-label>
+            <q-item-label class="text-subtitle1">
+              25.00
+              <i class="text-grey">●</i> 100.00
+            </q-item-label>
+          </q-item-section>
+
+          <q-item-section side>
+            <div>
+              <q-popup-edit v-model="mba" buttons>
+                <q-input
+                  type="number"
+                  v-model="mba"
+                  input-class="text-bold"
+                  @focus="$event.target.select()"
+                  label="Amount Paid"
+                  dense
+                  autofocus
+                />
+              </q-popup-edit>
+              <!-- <q-item-label class="text-h6 text-primary">{{mba | currency('')}}</q-item-label> -->
+              <q-item-label
+                class="text-h6 text-right text-primary badge-80"
+                v-ripple
+                v-touch-swipe.mouse.left.right.stop="({ evt, ...info }) => handleSwipe({ evt, ...info }, 'mba', 25)"
+              >
+                <transition name="slide-fade" mode="out-in">
+                  <!-- Wrapping only one DOM element, defined by QBtn -->
+                  <span :key="mba">{{ mba | currency('') }}</span>
                 </transition>
               </q-item-label>
             </div>
