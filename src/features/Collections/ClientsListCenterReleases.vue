@@ -26,7 +26,7 @@
 
       <q-separator></q-separator>
 
-      <q-item class="q-px-none">
+      <!-- <q-item class="q-px-none">
         <q-item-section>
           <q-item-label class="text-subtitle1 text-weight-bold">Maria Juana Dela Cruz</q-item-label>
           <q-item-label class="text-subtitle1">
@@ -41,7 +41,7 @@
         </q-item-section>
       </q-item>
 
-      <q-separator></q-separator>
+      <q-separator></q-separator> -->
     </q-list>
     <span class="q-ma-lg"></span>
   </div>

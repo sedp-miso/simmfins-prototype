@@ -17,7 +17,13 @@
         </q-item-section>
 
         <q-item-section>
-          <q-item-label class="text-subtitle1 text-weight-bold">Maria Juan Dela Cruz</q-item-label>
+          <q-item-label class="text-subtitle1 text-weight-bold">
+            <router-link
+              to="/collections/client_detail"
+              class="text-blue"
+              style="text-decoration:none"
+            >Maria Juan Dela Cruz</router-link>
+          </q-item-label>
           <q-item-label class="text-subtitle1">{{ 1000 | currency('')}}</q-item-label>
           <q-item-label>
             <q-icon class="q-mr-xs" name="fas fa-first-aid" color="red" size="16px"></q-icon>
@@ -43,7 +49,7 @@
 
           <q-item-label class="q-pt-sm text-h6">
             <q-badge color="blue">
-              <select name="select">
+              <select name="select" @input.prevent>
                 <option value="P" selected>PRESENT</option>
                 <option value="U">UNDERTIME</option>
                 <option value="T">TARDY</option>

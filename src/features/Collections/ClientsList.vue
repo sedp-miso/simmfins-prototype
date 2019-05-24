@@ -99,7 +99,7 @@ export default {
       clients: [],
       tabs: new Tabs(
         ["clients", "center_savings", "center_release", "loans"],
-        "center_release"
+        "clients"
       ),
       dialog: true,
       payment1: 200.51,
