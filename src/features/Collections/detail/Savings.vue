@@ -26,7 +26,7 @@
 
               <q-item-label class="text-h6 text-green">
                 {{ deposit | currency('') }}
-                <q-icon class="q-mr-xs" name="fas fa-arrow-alt-circle-up" color="green" size="22px"></q-icon>
+                <q-icon class="q-mr-xs" name="fas fa-arrow-alt-circle-up" color="green" size="16px"></q-icon>
               </q-item-label>
             </div>
 
@@ -45,7 +45,7 @@
 
               <q-item-label class="text-h6 text-red">
                 {{ withdrawal | currency('') }}
-                <q-icon class="q-mr-xs" name="fas fa-arrow-alt-circle-down" color="red" size="22px"></q-icon>
+                <q-icon class="q-mr-xs" name="fas fa-arrow-alt-circle-down" color="red" size="16px"></q-icon>
               </q-item-label>
             </div>
           </q-item-section>
@@ -74,7 +74,7 @@
 
               <q-item-label class="text-h6 text-green">
                 {{ deposit | currency('') }}
-                <q-icon class="q-mr-xs" name="fas fa-arrow-alt-circle-up" color="green" size="22px"></q-icon>
+                <q-icon class="q-mr-xs" name="fas fa-arrow-alt-circle-up" color="green" size="16px"></q-icon>
               </q-item-label>
             </div>
 
@@ -93,7 +93,7 @@
 
               <q-item-label class="text-h6 text-red">
                 {{ withdrawal | currency('') }}
-                <q-icon class="q-mr-xs" name="fas fa-arrow-alt-circle-down" color="red" size="22px"></q-icon>
+                <q-icon class="q-mr-xs" name="fas fa-arrow-alt-circle-down" color="red" size="16px"></q-icon>
               </q-item-label>
             </div>
           </q-item-section>
