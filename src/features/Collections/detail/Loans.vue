@@ -81,7 +81,7 @@
           </q-card-section>
           <q-card-section>
             <q-list>
-              <q-item-label header class="q-pa-none">General</q-item-label>
+              <q-item-label header class="q-pa-none">GENERAL</q-item-label>
               <!-- <q-item class="q-pa-none">
                 <q-item-section>
                   <q-item-label class="text-subtitle1">Loan Product</q-item-label>
@@ -126,7 +126,7 @@
               <q-item-label
                 header
                 class="q-pa-none q-my-md"
-              >Payment</q-item-label>
+              >PAYMENT</q-item-label>
 
               <q-item-section>
                 <q-card class="my-card">
