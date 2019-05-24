@@ -9,6 +9,10 @@
       :label="searchClientLabel"
     />
     <q-list class="q-pa-none">
+      <!-- <span class="caption">GUMAMELA</span> -->
+      <q-item-label header class="q-pa-none q-pt-xs">GUMAMELA</q-item-label>
+
+      <!-- <q-separator></q-separator> -->
       <q-item class="q-px-none">
         <q-item-section avatar style="min-width: 42px">
           <q-avatar size="48px">
@@ -39,10 +43,9 @@
               />
             </q-popup-edit>
             <q-item-label
-              style="min-width: 80px;"
-              class="text-h6 text-right text-primary"
+              class="text-h6 text-right text-primary badge-80"
               v-ripple
-              v-touch-swipe.mouse.left.right="handleSwipe"
+              v-touch-swipe.mouse.left.right.stop="handleSwipe"
             >
               <transition name="slide-fade" mode="out-in">
                 <!-- Wrapping only one DOM element, defined by QBtn -->
@@ -51,8 +54,8 @@
             </q-item-label>
           </div>
 
-          <q-item-label class="q-pt-sm text-h6">
-            <q-badge color="blue">
+          <q-item-label class="q-pt-none text-h6">
+            <q-badge class="badge-80" color="blue">
               <select name="select">
                 <option value="P" selected>PRESENT</option>
                 <option value="U">UNDERTIME</option>
@@ -64,6 +67,24 @@
               </select>
             </q-badge>
           </q-item-label>
+
+          <div class="cursor-pointer">
+            <q-popup-edit v-model="receipt" buttons>
+              <q-input
+                type="text"
+                v-model="receipt"
+                input-class="text-bold"
+                @focus="$event.target.select()"
+                label="Set OR"
+                dense
+                autofocus
+              />
+            </q-popup-edit>
+            <q-badge class="badge-80 justify-center q-mt-xs" color="red">
+              <span class="text-caption">{{ receipt || 'Set OR' }}</span>
+              <q-icon name="receipt" color="white" class="q-ml-xs"></q-icon>
+            </q-badge>
+          </div>
         </q-item-section>
       </q-item>
 
@@ -81,7 +102,8 @@ export default {
       selectedClient: null,
       clients: [],
       payment1: 200.51,
-      payment2: 0
+      payment2: 0,
+      receipt: null
     };
   },
 
@@ -134,5 +156,9 @@ select option {
 /* .slide-fade-leave-active for <2.1.8 */ {
   transform: translateX(100px);
   opacity: 0;
+}
+
+.badge-80 {
+  min-width: 80px;
 }
 </style>
