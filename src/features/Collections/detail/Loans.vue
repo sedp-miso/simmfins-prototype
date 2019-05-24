@@ -3,9 +3,9 @@
     <!-- <div class="col q-mt-md text-h6">Loans</div> -->
     <div class="row q-my-md text-subtitle1 text-bold text-grey">
       <div class="col">LOANS</div>
-      <div class="col text-right">
+      <!-- <div class="col text-right">
         <q-badge class="text-caption text-bold q-mt-xs" color="info">{{ 2101.00 | currency('') }}</q-badge>
-      </div>
+      </div>-->
     </div>
 
     <div class="row q-mt-md">
@@ -15,7 +15,7 @@
             <q-icon name="info" color="primary" size="25px" class="cursor-pointer"></q-icon>
           </q-item-section>
           <q-item-section class="cursor-pointer" @click.prevent="openOffsettingDialog = true">
-            <q-item-label class="text-subtitle1 text-bold">PLPEL-01234</q-item-label>
+            <q-item-label class="text-subtitle1 text-bold">{{ loanNo }}</q-item-label>
             <q-item-label class="text-subtitle1">
               2,101.00
               <span class="text-grey">●</span>
@@ -36,7 +36,16 @@
                   autofocus
                 />
               </q-popup-edit>
-              <q-item-label class="text-h6 text-primary">{{totalPayment | currency('')}}</q-item-label>
+              <q-item-label
+                class="text-h6 text-right text-primary badge-80"
+                v-ripple
+                v-touch-swipe.mouse.left.right.stop="handleSwipe"
+              >
+                <transition name="slide-fade" mode="out-in">
+                  <!-- Wrapping only one DOM element, defined by QBtn -->
+                  <span :key="totalPayment">{{ totalPayment | currency('') }}</span>
+                </transition>
+              </q-item-label>
             </div>
           </q-item-section>
         </q-item>
@@ -68,7 +77,8 @@
               </q-item-section>
               <q-item-section>
                 <q-item-label class="text-subtitle2">Marias Juana Dela Cruz</q-item-label>
-                <q-item-label class="text-h6 text-bold">PLPEL-01234
+                <q-item-label class="text-h6 text-bold">
+                  {{ loanNo }}
                   <!-- <q-icon name="info" color="primary" @click="sho"></q-icon> -->
                 </q-item-label>
                 <q-item-label class="text-h6">
@@ -179,7 +189,7 @@
     >
       <q-layout class="bg-white">
         <q-toolbar class="bg-primary text-white">
-          <q-toolbar-title>Payment Offsetting</q-toolbar-title>
+          <q-toolbar-title>Source of Payment</q-toolbar-title>
 
           <q-btn
             flat
@@ -200,7 +210,8 @@
               </q-item-section>
               <q-item-section>
                 <q-item-label class="text-subtitle2">Marias Juana Dela Cruz</q-item-label>
-                <q-item-label class="text-h6 text-bold">PLPEL-01234
+                <q-item-label class="text-h6 text-bold">
+                  {{ loanNo }}
                   <!-- <q-icon name="info" color="primary" @click="sho"></q-icon> -->
                 </q-item-label>
                 <q-item-label class="text-h6">
@@ -241,7 +252,16 @@
                               autofocus
                             />
                           </q-popup-edit>
-                          <q-item-label class="text-primary">{{totalPayment | currency('')}}</q-item-label>
+                          <q-item-label
+                            class="text-h6 text-right text-primary badge-80"
+                            v-ripple
+                            v-touch-swipe.mouse.left.right.stop="handleSwipe"
+                          >
+                            <transition name="slide-fade" mode="out-in">
+                              <!-- Wrapping only one DOM element, defined by QBtn -->
+                              <span>{{ totalPayment | currency('') }}</span>
+                            </transition>
+                          </q-item-label>
                         </div>
                       </q-item-label>
                     </q-item-section>
@@ -267,7 +287,16 @@
                               autofocus
                             />
                           </q-popup-edit>
-                          <q-item-label class="text-primary">{{totalPayment | currency('')}}</q-item-label>
+                          <q-item-label
+                            class="text-h6 text-right text-primary badge-80"
+                            v-ripple
+                            v-touch-swipe.mouse.left.right.stop="handleSwipe"
+                          >
+                            <transition name="slide-fade" mode="out-in">
+                              <!-- Wrapping only one DOM element, defined by QBtn -->
+                              <span :key="totalPayment">{{ totalPayment | currency('') }}</span>
+                            </transition>
+                          </q-item-label>
                         </div>
                       </q-item-label>
                     </q-item-section>
@@ -275,7 +304,7 @@
                   <q-separator></q-separator>
                   <q-item>
                     <q-item-section>
-                      <q-item-label class="text-subtitle1 text-bold">Payment Thru MBA</q-item-label>
+                      <q-item-label class="text-subtitle1 text-bold">MBA Insurance</q-item-label>
                     </q-item-section>
 
                     <q-item-section side>
@@ -292,7 +321,16 @@
                               autofocus
                             />
                           </q-popup-edit>
-                          <q-item-label class="text-primary">{{totalPayment | currency('')}}</q-item-label>
+                          <q-item-label
+                            class="text-h6 text-right text-primary badge-80"
+                            v-ripple
+                            v-touch-swipe.mouse.left.right.stop="handleSwipe"
+                          >
+                            <transition name="slide-fade" mode="out-in">
+                              <!-- Wrapping only one DOM element, defined by QBtn -->
+                              <span :key="totalPayment">{{ totalPayment | currency('') }}</span>
+                            </transition>
+                          </q-item-label>
                         </div>
                       </q-item-label>
                     </q-item-section>
@@ -325,18 +363,29 @@ export default {
   name: "Loans",
   data() {
     return {
+      loanNo: "PLPEL-05242019",
       openLoanDialog: false,
       openOffsettingDialog: false,
-      totalPayment: 2101.0,
-      totalPayment2: 0,
+      totalPayment: 0.0,
+      // totalPayment2: 0,
       cash: 1101.0,
-      cash2: 0.0,
+      // cash2: 0.0,
       cbu: 1000.0,
-      cbu2: 0.0,
+      // cbu2: 0.0,
       subsidized: false
     };
   },
-  computed: {}
+  methods: {
+    handleSwipe({ evt, ...info }) {
+      if (info.direction === "left") {
+        this.totalPayment = 0.0;
+      }
+
+      if (info.direction === "right") {
+        this.totalPayment = 1000;
+      }
+    }
+  }
 };
 </script>
 

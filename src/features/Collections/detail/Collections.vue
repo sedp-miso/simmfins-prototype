@@ -2,9 +2,9 @@
   <div>
     <div class="row q-my-md text-subtitle1 text-bold text-grey">
       <div class="col">COLLECTIONS</div>
-      <div class="col text-right">
+      <!-- <div class="col text-right">
         <q-badge class="text-caption text-bold q-mt-xs" color="info">{{ 155.00 | currency('') }}</q-badge>
-      </div>
+      </div>-->
     </div>
 
     <div class="row q-mt-md">
@@ -28,7 +28,17 @@
                   autofocus
                 />
               </q-popup-edit>
-              <q-item-label class="text-h6 text-primary">{{ps | currency('')}}</q-item-label>
+              <!-- <q-item-label class="text-h6 text-primary">{{ps | currency('')}}</q-item-label> -->
+              <q-item-label
+                class="text-h6 text-right text-primary badge-80"
+                v-ripple
+                v-touch-swipe.mouse.left.right.stop="({ evt, ...info }) => handleSwipe({ evt, ...info }, 'ps', 100)"
+              >
+                <transition name="slide-fade" mode="out-in">
+                  <!-- Wrapping only one DOM element, defined by QBtn -->
+                  <span :key="ps">{{ ps | currency('') }}</span>
+                </transition>
+              </q-item-label>
             </div>
           </q-item-section>
         </q-item>
@@ -53,7 +63,17 @@
                   autofocus
                 />
               </q-popup-edit>
-              <q-item-label class="text-h6 text-primary">{{mba | currency('')}}</q-item-label>
+              <!-- <q-item-label class="text-h6 text-primary">{{mba | currency('')}}</q-item-label> -->
+              <q-item-label
+                class="text-h6 text-right text-primary badge-80"
+                v-ripple
+                v-touch-swipe.mouse.left.right.stop="({ evt, ...info }) => handleSwipe({ evt, ...info }, 'mba', 25)"
+              >
+                <transition name="slide-fade" mode="out-in">
+                  <!-- Wrapping only one DOM element, defined by QBtn -->
+                  <span :key="mba">{{ mba | currency('') }}</span>
+                </transition>
+              </q-item-label>
             </div>
           </q-item-section>
         </q-item>
@@ -78,7 +98,17 @@
                   autofocus
                 />
               </q-popup-edit>
-              <q-item-label class="text-h6 text-primary">{{id | currency('')}}</q-item-label>
+              <!-- <q-item-label class="text-h6 text-primary">{{id | currency('')}}</q-item-label> -->
+              <q-item-label
+                class="text-h6 text-right text-primary badge-80"
+                v-ripple
+                v-touch-swipe.mouse.left.right.stop="({ evt, ...info }) => handleSwipe({ evt, ...info }, 'id', 10)"
+              >
+                <transition name="slide-fade" mode="out-in">
+                  <!-- Wrapping only one DOM element, defined by QBtn -->
+                  <span :key="id">{{ id | currency('') }}</span>
+                </transition>
+              </q-item-label>
             </div>
           </q-item-section>
         </q-item>
@@ -103,11 +133,28 @@
                   autofocus
                 />
               </q-popup-edit>
-              <q-item-label class="text-h6 text-primary">{{passbook | currency('')}}</q-item-label>
+              <!-- <q-item-label class="text-h6 text-primary">{{passbook | currency('')}}</q-item-label> -->
+              <q-item-label
+                class="text-h6 text-right text-primary badge-80"
+                v-ripple
+                v-touch-swipe.mouse.left.right.stop="({ evt, ...info }) => handleSwipe({ evt, ...info }, 'passbook', 20)"
+              >
+                <transition name="slide-fade" mode="out-in">
+                  <!-- Wrapping only one DOM element, defined by QBtn -->
+                  <span :key="passbook">{{ passbook | currency('') }}</span>
+                </transition>
+              </q-item-label>
             </div>
           </q-item-section>
         </q-item>
         <q-separator></q-separator>
+
+        <div class="row q-pt-sm">
+          <div class="col text-grey">TOTAL COLLECTIONS</div>
+          <div class="col text-right">
+            <q-badge class="text-caption text-bold" color="info">{{ 155.00 | currency('') }}</q-badge>
+          </div>
+        </div>
 
         <!-- <q-item class="q-pa-none">
           <q-item-section>
@@ -134,7 +181,17 @@ export default {
       id: 10.0
     };
   },
-  computed: {}
+  methods: {
+    handleSwipe({ evt, ...info }, targetModel, value) {
+      if (info.direction === "left") {
+        this[targetModel] = 0.0;
+      }
+
+      if (info.direction === "right") {
+        this[targetModel] = value;
+      }
+    }
+  }
 };
 </script>
 
