@@ -146,9 +146,15 @@ select option {
   color: black;
 }
 
-.editable {
-  cursor: pointer;
-  padding: 0px 0px 5px;
-  border-bottom: dotted 1px;
+.slide-fade-enter-active {
+  transition: all 0.3s ease;
+}
+.slide-fade-leave-active {
+  transition: all 0.5s cubic-bezier(1, 0.3, 0.6, 1);
+}
+.slide-fade-enter, .slide-fade-leave-to
+/* .slide-fade-leave-active for <2.1.8 */ {
+  transform: translateX(100px);
+  opacity: 0;
 }
 </style>
