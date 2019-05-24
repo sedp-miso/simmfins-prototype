@@ -51,7 +51,7 @@
                     <q-separator class="q-mt-sm"/>
                     <q-tab-panels v-model="tabs.current" animated>
                       <q-tab-panel class="q-pa-none" name="loans">
-                        <div class="text-h6">Loanss</div>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        <Loans/>
                       </q-tab-panel>
                       <q-tab-panel class="q-pa-none" name="collections">
                         <div class="text-h6">Collections</div>Lorem ipsum dolor sit amet consectetur adipisicing elit.
@@ -97,8 +97,12 @@
 
 <script>
 import Tabs from "../../services/Tabs";
+import Loans from "./ClientDetailLoans";
 
 export default {
+  components: {
+    Loans
+  },
   data() {
     return {
       tabs: new Tabs([

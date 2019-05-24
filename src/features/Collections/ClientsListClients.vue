@@ -40,9 +40,15 @@
             </q-popup-edit>
             <q-item-label
               style="min-width: 80px;"
-              class="text-h6 text-right"
+              class="text-h6 text-right text-primary"
+              v-ripple
               v-touch-swipe.mouse.left.right="handleSwipe"
-            >{{ payment1 | currency('') }}</q-item-label>
+            >
+              <transition name="slide-fade" mode="out-in">
+                <!-- Wrapping only one DOM element, defined by QBtn -->
+                <span :key="payment1">{{ payment1 | currency('') }}</span>
+              </transition>
+            </q-item-label>
           </div>
 
           <q-item-label class="q-pt-sm text-h6">
@@ -87,11 +93,11 @@ export default {
 
   methods: {
     handleSwipe({ evt, ...info }) {
-      if (info.direction === "right") {
+      if (info.direction === "left") {
         this.payment1 = 0.0;
       }
 
-      if (info.direction === "left") {
+      if (info.direction === "right") {
         this.payment1 = 1000;
       }
     }
@@ -116,5 +122,17 @@ select {
 
 select option {
   color: black;
+}
+
+.slide-fade-enter-active {
+  transition: all 0.3s ease;
+}
+.slide-fade-leave-active {
+  transition: all 0.5s cubic-bezier(1, 0.3, 0.6, 1);
+}
+.slide-fade-enter, .slide-fade-leave-to
+/* .slide-fade-leave-active for <2.1.8 */ {
+  transform: translateX(100px);
+  opacity: 0;
 }
 </style>
