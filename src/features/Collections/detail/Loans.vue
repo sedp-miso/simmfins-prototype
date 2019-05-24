@@ -81,106 +81,89 @@
           </q-card-section>
           <q-card-section>
             <q-list>
-              <q-item-label header class="q-pa-none">GENERAL</q-item-label>
-              <!-- <q-item class="q-pa-none">
-                <q-item-section>
-                  <q-item-label class="text-subtitle1">Loan Product</q-item-label>
-                </q-item-section>
-
-                <q-item-section side>
-                  <q-item-label class="text-subtitle1">PLPEL</q-item-label>
-                </q-item-section>
-              </q-item>
-              <q-separator></q-separator>-->
+              <q-item-label header class="q-pa-none text-bold">BALANCES</q-item-label>
               <q-item>
                 <q-item-section>
-                  <q-item-label class="text-subtitle1">Principal Balance</q-item-label>
-                </q-item-section>
-
-                <q-item-section side>
-                  <q-item-label class="text-subtitle1">2,453.69</q-item-label>
+                  <q-item-label class="text-grey text-bold">Principal</q-item-label>
+                  <q-item-label class="text-subtitle2">
+                    1,000.00
+                    <i class="text-grey">of</i>
+                    10,000.00
+                  </q-item-label>
                 </q-item-section>
               </q-item>
-              <q-separator></q-separator>
+              <q-separator inset></q-separator>
               <q-item>
                 <q-item-section>
-                  <q-item-label class="text-subtitle1">Interest Balance</q-item-label>
-                </q-item-section>
-
-                <q-item-section side>
-                  <q-item-label class="text-subtitle1">22.65</q-item-label>
+                  <q-item-label class="text-grey text-bold">Interest</q-item-label>
+                  <q-item-label class="text-subtitle2">
+                    100.00
+                    <i class="text-grey">of</i>
+                    1,000.00
+                  </q-item-label>
                 </q-item-section>
               </q-item>
-              <q-separator></q-separator>
+              <q-separator inset></q-separator>
               <q-item>
                 <q-item-section>
-                  <q-item-label class="text-subtitle1">Total Balance</q-item-label>
-                </q-item-section>
-
-                <q-item-section side>
-                  <q-item-label class="text-subtitle1">2,453.69</q-item-label>
+                  <q-item-label class="text-grey text-bold">Total</q-item-label>
+                  <q-item-label class="text-subtitle2">
+                    1,100.00
+                    <i class="text-grey">of</i>
+                    11,000.00
+                  </q-item-label>
                 </q-item-section>
               </q-item>
-              <q-separator></q-separator>
+              <!-- <q-separator inset></q-separator> -->
+              <q-item-label header class="q-pa-none text-bold">PAYMENTS</q-item-label>
 
-              <q-item-label
-                header
-                class="q-pa-none q-my-md"
-              >PAYMENT</q-item-label>
-
-              <q-item-section>
-                <q-card class="my-card">
-                  <q-card-section class="q-pa-none">
-                    <q-markup-table flat wrap-cells id="payments-table">
-                      <thead>
-                        <tr>
-                          <th class="text-left"></th>
-                          <th class="text-right text-subtitle1">Due</th>
-                          <th class="text-right text-subtitle1">Paid</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <td class="text-left">Current Due</td>
-                          <td class="text-right">2,101.00</td>
-                          <td class="text-right text-bold">
-                            <div>
-                              <q-item-label class>{{totalPayment | currency('')}}</q-item-label>
-                            </div>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td class="text-left">Past Due</td>
-                          <td class="text-right">2,101.00</td>
-                          <td class="text-right text-bold">
-                            <div>
-                              <q-item-label class>{{totalPayment | currency('')}}</q-item-label>
-                            </div>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td class="text-left">Penalty Due</td>
-                          <td class="text-right">2,101.00</td>
-                          <td class="text-right text-bold">
-                            <div>
-                              <q-item-label class>{{totalPayment | currency('')}}</q-item-label>
-                            </div>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td class="text-left">Advance Payment</td>
-                          <td class="text-right"></td>
-                          <td class="text-right text-bold">
-                            <div>
-                              <q-item-label class>{{totalPayment | currency('')}}</q-item-label>
-                            </div>
-                          </td>
-                        </tr>
-                      </tbody>
-                    </q-markup-table>
-                  </q-card-section>
-                </q-card>
-              </q-item-section>
+              <q-item>
+                <q-item-section>
+                  <q-item-label class="text-grey text-bold">Current Due</q-item-label>
+                  <q-item-label class="text-subtitle2">
+                    1,000.00
+                    <i class="text-grey">of</i>
+                    1,000.00
+                  </q-item-label>
+                </q-item-section>
+              </q-item>
+              <q-separator inset></q-separator>
+              <q-item>
+                <q-item-section>
+                  <q-item-label class="text-grey text-bold">Past Due</q-item-label>
+                  <q-item-label class="text-subtitle2">
+                    1,000.00
+                    <i class="text-grey">of</i>
+                    1,000.00
+                  </q-item-label>
+                </q-item-section>
+              </q-item>
+              <q-separator inset></q-separator>
+              <q-item>
+                <q-item-section>
+                  <q-item-label class="text-grey text-bold">Penalty Due</q-item-label>
+                  <q-item-label class="text-subtitle2">
+                    10.00
+                    <i class="text-grey">of</i>
+                    10.00
+                  </q-item-label>
+                </q-item-section>
+              </q-item>
+              <q-separator inset></q-separator>
+              <q-item>
+                <q-item-section>
+                  <q-item-label class="text-grey text-bold">Advance</q-item-label>
+                  <q-item-label class="text-subtitle2">1,000.00</q-item-label>
+                </q-item-section>
+              </q-item>
+              <q-separator inset></q-separator>
+              <q-item>
+                <q-item-section>
+                  <q-item-label class="text-grey text-bold">Subsidized</q-item-label>
+                  <q-item-label class="text-subtitle2">NO</q-item-label>
+                </q-item-section>
+              </q-item>
+              <q-separator inset></q-separator>
             </q-list>
           </q-card-section>
         </q-card>
