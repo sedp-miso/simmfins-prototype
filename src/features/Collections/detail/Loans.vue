@@ -82,7 +82,7 @@
           <q-card-section>
             <q-list>
               <q-item-label header class="q-pa-none">General</q-item-label>
-              <q-item>
+              <!-- <q-item class="q-pa-none">
                 <q-item-section>
                   <q-item-label class="text-subtitle1">Loan Product</q-item-label>
                 </q-item-section>
@@ -91,7 +91,7 @@
                   <q-item-label class="text-subtitle1">PLPEL</q-item-label>
                 </q-item-section>
               </q-item>
-              <q-separator></q-separator>
+              <q-separator></q-separator>-->
               <q-item>
                 <q-item-section>
                   <q-item-label class="text-subtitle1">Principal Balance</q-item-label>
@@ -122,21 +122,11 @@
                 </q-item-section>
               </q-item>
               <q-separator></q-separator>
-              <q-item>
-                <q-item-section>
-                  <q-item-label class="text-subtitle1">Subsidized?</q-item-label>
-                </q-item-section>
 
-                <q-item-section side>
-                  <q-item-label class="text-subtitle1">
-                    {{ subsidized ? 'YES' : 'NO'}}
-                    <!-- <q-toggle disable v-model="subsidized"/> -->
-                  </q-item-label>
-                </q-item-section>
-              </q-item>
-              <q-separator class="q-mb-md"></q-separator>
-
-              <q-item-label header class="q-pa-none q-mb-md">Payment</q-item-label>
+              <q-item-label
+                header
+                class="q-pa-none q-my-md"
+              >Payment</q-item-label>
 
               <q-item-section>
                 <q-card class="my-card">
