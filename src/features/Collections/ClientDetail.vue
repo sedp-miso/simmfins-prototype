@@ -73,17 +73,24 @@
                 <q-page-sticky expand position="bottom">
                   <div class="row full-width">
                     <div class="col">
-                      <q-tabs
-                        v-model="tabs.current"
-                        dense
-                        switch-indicator
-                        class="bg-grey-2 text-primary"
-                      >
-                        <q-tab class="text-blue" name="loans" icon="fas fa-cash-register">
+                      <q-tabs v-model="tabs.current" dense switch-indicator class="text-blue-grey">
+                        <q-tab
+                          :class="{ 'text-primary': tabs.current === 'loans' }"
+                          name="loans"
+                          icon="fas fa-cash-register"
+                        >
                           <q-badge color="red" floating>1</q-badge>
                         </q-tab>
-                        <q-tab class="text-blue" name="collections" icon="fas fa-coins"/>
-                        <q-tab class="text-blue" name="savings" icon="fas fa-piggy-bank"/>
+                        <q-tab
+                          :class="{ 'text-primary': tabs.current === 'collections' }"
+                          name="collections"
+                          icon="fas fa-coins"
+                        />
+                        <q-tab
+                          :class="{ 'text-primary': tabs.current === 'savings' }"
+                          name="savings"
+                          icon="fas fa-piggy-bank"
+                        />
                       </q-tabs>
                     </div>
                   </div>
