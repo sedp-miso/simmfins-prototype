@@ -29,7 +29,12 @@
                     </q-item-label>
                   </q-item-section>
                   <q-item-section side>
-                    <q-badge class="justify-center" color="positive" style="min-width: 80px;">
+                    <q-badge
+                      class="justify-center"
+                      color="positive"
+                      style="min-width: 80px;"
+                      @click="tabs.current = 'cash_denomination'"
+                    >
                       <span class="text-subtitle2">{{ 5000 | currency('') }}</span>
                     </q-badge>
                     <div class="cursor-pointer">
@@ -44,7 +49,7 @@
                           autofocus
                         />
                       </q-popup-edit>
-                      <q-badge class="justify-center q-mt-xs" color="red" style="min-width: 80px;">
+                      <q-badge class="justify-center q-mt-xs" :color="receipt ? 'red' : 'grey'" style="min-width: 80px;">
                         <span class="text-caption">{{ receipt || 'Set OR' }}</span>
                         <q-icon name="receipt" color="white" class="q-ml-xs"></q-icon>
                       </q-badge>
@@ -65,6 +70,9 @@
                   <q-tab-panel class="q-pa-none" name="emergency_loans">
                     <EmergencyLoans/>
                   </q-tab-panel>
+                  <q-tab-panel class="q-pa-none" name="cash_denomination">
+                    <CashDenomination/>
+                  </q-tab-panel>
 
                   <q-tab-panel class="q-pa-none" name="loans">
                     <EligibleLoanBorrowers/>
@@ -74,7 +82,7 @@
             </q-card>
             <q-page-sticky expand position="bottom">
               <div class="row full-width">
-                <div class="col">
+                <div class="col bg-white">
                   <q-tabs v-model="tabs.current" dense switch-indicator class="text-blue-grey">
                     <q-tab
                       :class="{ 'text-primary': tabs.current === 'clients' }"
@@ -133,6 +141,7 @@
 
 <script>
 import Tabs from "../../services/Tabs";
+import CashDenomination from "./ClientsListCashDenomination";
 import Clients from "./ClientsListClients";
 import CenterSavings from "./ClientsListCenterSavings";
 import CollectionReleases from "./ClientsListCollectionReleases";
@@ -142,6 +151,7 @@ import EligibleLoanBorrowers from "./ClientsListEligibleLoanBorrowers";
 export default {
   components: {
     Clients,
+    CashDenomination,
     CenterSavings,
     CollectionReleases,
     EmergencyLoans,
@@ -157,7 +167,8 @@ export default {
         "center_savings",
         "collection_releases",
         "emergency_loans",
-        "loans"
+        "loans",
+        "cash_denomination"
       ]),
       receipt: null,
       dialog: true,

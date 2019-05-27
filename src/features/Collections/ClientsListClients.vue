@@ -16,7 +16,7 @@
       <q-item class="q-px-none">
         <q-item-section avatar style="min-width: 42px">
           <q-avatar size="48px">
-            <img src="https://cdn.quasar-framework.org/img/avatar6.jpg">
+            <img src="https://cdn.quasar.dev/img/avatar6.jpg">
           </q-avatar>
         </q-item-section>
 
@@ -55,8 +55,8 @@
           </div>
 
           <q-item-label class="q-pt-none text-h6">
-            <q-badge class="badge-80" color="blue">
-              <select name="select">
+            <q-badge class="badge-80" :color="getAttendanceColor(attendance)">
+              <select name="select" v-model="attendance" :class="{'text-black' : attendance === 'T'}">
                 <option value="P" selected>PRESENT</option>
                 <option value="U">UNDERTIME</option>
                 <option value="T">TARDY</option>
@@ -80,7 +80,7 @@
                 autofocus
               />
             </q-popup-edit>
-            <q-badge class="badge-80 justify-center q-mt-xs" color="red">
+            <q-badge class="badge-80 justify-center q-mt-xs" :color="receipt ? 'red' : 'grey'">
               <span class="text-caption">{{ receipt || 'Set OR' }}</span>
               <q-icon name="receipt" color="white" class="q-ml-xs"></q-icon>
             </q-badge>
@@ -99,6 +99,7 @@ export default {
   name: "clients",
   data() {
     return {
+      attendance: "P",
       selectedClient: null,
       clients: [],
       payment1: 200.51,
@@ -114,6 +115,19 @@ export default {
   },
 
   methods: {
+    getAttendanceColor(attendance) {
+      const colors = {
+        P: 'positive',
+        U: 'purple',
+        T: 'yellow',
+        A: 'red',
+        L: 'orange',
+        I: 'grey',
+        E: 'primary',
+      };
+     
+      return colors[attendance] || 'default';
+    },
     handleSwipe({ evt, ...info }) {
       if (info.direction === "left") {
         this.payment1 = 0.0;

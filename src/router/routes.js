@@ -11,7 +11,7 @@ const routes = [
     path: "/collections/client_detail",
     //component: () => import("../layouts/Landing.vue")
     component: () => import("../features/Collections/ClientDetail.vue")
-  }
+  },
 ];
 
 routes.push({
