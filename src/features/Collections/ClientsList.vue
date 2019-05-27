@@ -49,7 +49,11 @@
                           autofocus
                         />
                       </q-popup-edit>
-                      <q-badge class="justify-center q-mt-xs" :color="receipt ? 'red' : 'grey'" style="min-width: 80px;">
+                      <q-badge
+                        class="justify-center q-mt-xs"
+                        :color="receipt ? 'red' : 'grey'"
+                        style="min-width: 80px;"
+                      >
                         <span class="text-caption">{{ receipt || 'Set OR' }}</span>
                         <q-icon name="receipt" color="white" class="q-ml-xs"></q-icon>
                       </q-badge>
@@ -82,7 +86,7 @@
             </q-card>
             <q-page-sticky expand position="bottom">
               <div class="row full-width">
-                <div class="col bg-white">
+                <div class="col bg-white shadow-up-2">
                   <q-tabs v-model="tabs.current" dense switch-indicator class="text-blue-grey">
                     <q-tab
                       :class="{ 'text-primary': tabs.current === 'clients' }"
