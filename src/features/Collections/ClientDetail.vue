@@ -157,4 +157,8 @@ select option {
   transform: translateX(100px);
   opacity: 0;
 }
+
+.badge-80 {
+  min-width: 80px;
+}
 </style>
