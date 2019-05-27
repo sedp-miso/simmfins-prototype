@@ -24,7 +24,7 @@
                     <q-item class="q-pa-none">
                       <q-item-section side>
                         <q-avatar size="48px">
-                          <img src="https://cdn.quasar-framework.org/img/avatar6.jpg">
+                          <img src="https://cdn.quasar.dev/img/avatar6.jpg">
                         </q-avatar>
                       </q-item-section>
                       <q-item-section>

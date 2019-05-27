@@ -188,7 +188,9 @@
           <q-item-section>
             <q-item-label class="text-subtitle1 text-bold">SSS
               <!-- check if this is feasible in development -->
-              (4/1)
+            </q-item-label>
+            <q-item-label class="text-subtitle1">1
+              <i class="text-grey">of</i> 4
             </q-item-label>
             <q-item-label class="text-subtitle1">
               25.00

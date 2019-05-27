@@ -19,7 +19,8 @@
             <q-item-label class="text-subtitle1">
               2,101.00
               <span class="text-grey">●</span>
-              30/20
+              20
+              <i class="text-grey">of</i> 30
             </q-item-label>
           </q-item-section>
 
