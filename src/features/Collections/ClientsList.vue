@@ -23,9 +23,14 @@
                       <q-badge color="info">ALBAY</q-badge>
                     </q-item-label>
                     <q-item-label class="text-subtitle2">05/21/2019</q-item-label>
-                    <q-item-label class="text-h6">
-                      0.00
-                      <span class="text-grey">●</span> 10,000.00
+                    <q-item-label
+                      class="text-h6 cursor-pointer"
+                      @click="collectionSummaryDialog = true"
+                    >
+                      11,000.00
+                      <span class="text-grey">●</span>
+                      10,000.00
+                      <q-icon name="description" class="text-h6"></q-icon>
                     </q-item-label>
                   </q-item-section>
                   <q-item-section side>
@@ -84,6 +89,153 @@
                 </q-tab-panels>
               </q-card-section>
             </q-card>
+
+            <!-- Collection Summary -->
+            <q-dialog
+              v-model="collectionSummaryDialog"
+              :maximized="true"
+              transition-show="slide-up"
+              transition-hide="slide-down"
+            >
+              <div class="bg-white">
+                <q-toolbar class="bg-primary text-white">
+                  <q-toolbar-title>Center Collection Summary</q-toolbar-title>
+
+                  <q-btn
+                    flat
+                    round
+                    dense
+                    icon="fas fa-times"
+                    size="10px"
+                    @click="collectionSummaryDialog = false"
+                  />
+                </q-toolbar>
+
+                <q-list class="q-pa-none q-mt-md">
+                  <q-item>
+                    <q-item-section>
+                      <q-item-label class="text-subtitle1 text-bold">CASH</q-item-label>
+                    </q-item-section>
+                    <q-item-section side>
+                      <q-item-label class="text-h6">11,000.00</q-item-label>
+                    </q-item-section>
+                  </q-item>
+                  <q-separator></q-separator>
+
+                  <q-item>
+                    <q-item-section>
+                      <q-list dense class="q-px-md">
+                        <q-item>
+                          <q-item-section>
+                            <q-item-label class="text-subtitle1 text-grey">Loan Payments</q-item-label>
+                          </q-item-section>
+                          <q-item-section side>
+                            <q-item-label class="text-body1 text-weight-medium">8,100.00</q-item-label>
+                          </q-item-section>
+                        </q-item>
+                        <q-separator/>
+                        <q-item>
+                          <q-item-section>
+                            <q-item-label class="text-subtitle1 text-grey">Collection Payments</q-item-label>
+                          </q-item-section>
+                          <q-item-section side>
+                            <q-item-label class="text-body1 text-weight-medium">1,500.00</q-item-label>
+                          </q-item-section>
+                        </q-item>
+                        <q-separator/>
+                        <q-item>
+                          <q-item-section>
+                            <q-item-label class="text-subtitle1 text-grey">Deposits</q-item-label>
+                          </q-item-section>
+                          <q-item-section side>
+                            <q-item-label class="text-body1 text-weight-medium">1,400.00</q-item-label>
+                          </q-item-section>
+                        </q-item>
+                        <q-separator/>
+                      </q-list>
+                    </q-item-section>
+                  </q-item>
+
+                  <q-item>
+                    <q-item-section>
+                      <q-item-label class="text-subtitle1 text-bold">WITHDRAWALS</q-item-label>
+                    </q-item-section>
+                    <q-item-section side>
+                      <q-item-label class="text-h6">0.00</q-item-label>
+                    </q-item-section>
+                  </q-item>
+                  <q-separator></q-separator>
+                  <q-item>
+                    <q-item-section>
+                      <q-item-label class="text-subtitle1 text-bold">CENTER RELEASES</q-item-label>
+                    </q-item-section>
+                    <q-item-section side>
+                      <q-item-label class="text-h6 text-red">(5,100.00)</q-item-label>
+                    </q-item-section>
+                  </q-item>
+                  <q-separator></q-separator>
+                  <q-item>
+                    <q-item-section>
+                      <q-item-label class="text-subtitle1 text-bold">EMERGENCY LOANS</q-item-label>
+                    </q-item-section>
+                    <q-item-section side>
+                      <q-item-label class="text-h6 text-red">(1,000.00)</q-item-label>
+                    </q-item-section>
+                  </q-item>
+                  <q-separator></q-separator>
+
+                  <q-item>
+                    <q-item-section>
+                      <q-item-label class="text-subtitle1 text-bold">OTHER TRANSACTIONS</q-item-label>
+                      <!-- <q-item-label class="text-body1">No cash involve</q-item-label> -->
+                    </q-item-section>
+                  </q-item>
+                  <q-separator></q-separator>
+
+                  <q-item>
+                    <q-item-section>
+                      <q-list dense class="q-px-md">
+                        <q-item>
+                          <q-item-section>
+                            <q-item-label class="text-subtitle1 text-grey">CBU Offset</q-item-label>
+                          </q-item-section>
+                          <q-item-section side>
+                            <q-item-label class="text-body1 text-weight-medium">50.00</q-item-label>
+                          </q-item-section>
+                        </q-item>
+                        <q-separator/>
+                        <q-item>
+                          <q-item-section>
+                            <q-item-label class="text-subtitle1 text-grey">SPS Offset</q-item-label>
+                          </q-item-section>
+                          <q-item-section side>
+                            <q-item-label class="text-body1 text-weight-medium">50.00</q-item-label>
+                          </q-item-section>
+                        </q-item>
+                        <q-separator/>
+                        <q-item>
+                          <q-item-section>
+                            <q-item-label class="text-subtitle1 text-grey">Payment Thru MBA</q-item-label>
+                          </q-item-section>
+                          <q-item-section side>
+                            <q-item-label class="text-body1 text-weight-medium">0.00</q-item-label>
+                          </q-item-section>
+                        </q-item>
+                        <q-separator/>
+                      </q-list>
+                    </q-item-section>
+                  </q-item>
+                </q-list>
+
+                <div class="row justify-end q-mt-md q-mx-md">
+                  <div class="col text-subtitle1 text-bold">NET COLLECTION</div>
+                  <div class="col text-right">
+                    <q-badge class="text-h6 text-bold" color="success">{{ 5000.00 | currency('') }}</q-badge>
+                  </div>
+                </div>
+              </div>
+            </q-dialog>
+
             <q-page-sticky expand position="bottom">
               <div class="row full-width">
                 <div class="col bg-white shadow-up-2">
@@ -177,7 +329,8 @@ export default {
       receipt: null,
       dialog: true,
       payment1: 200.51,
-      payment2: 0
+      payment2: 0,
+      collectionSummaryDialog: true
     };
   },
 
