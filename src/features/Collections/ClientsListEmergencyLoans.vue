@@ -6,7 +6,7 @@
       <q-item class="q-px-none">
         <q-item-section avatar style="min-width: 42px">
           <q-avatar size="48px">
-            <img src="https://cdn.quasar-framework.org/img/avatar6.jpg">
+            <img src="https://cdn.quasar.dev/img/avatar6.jpg">
           </q-avatar>
         </q-item-section>
 

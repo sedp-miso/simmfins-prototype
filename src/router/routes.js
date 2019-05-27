@@ -11,6 +11,10 @@ const routes = [
     path: "/collections/client_detail",
     //component: () => import("../layouts/Landing.vue")
     component: () => import("../features/Collections/ClientDetail.vue")
+  },
+  {
+    path: "/collections/denomination",
+    component: () => import("../features/Collections/Denomination.vue")
   }
 ];
 
