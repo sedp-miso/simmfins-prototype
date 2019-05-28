@@ -167,7 +167,7 @@
                   <q-separator></q-separator>
                   <q-item>
                     <q-item-section>
-                      <q-item-label class="text-subtitle1 text-bold">CENTER RELEASES</q-item-label>
+                      <q-item-label class="text-subtitle1 text-bold">COLLECTION RELEASES</q-item-label>
                     </q-item-section>
                     <q-item-section side>
                       <q-item-label class="text-h6 text-red">(5,100.00)</q-item-label>
